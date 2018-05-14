@@ -15,4 +15,8 @@ describe('#numFormatter', function() {
     it('should return a random int in range', function() {
 
     });
+
+    it('should return random true or false', function() {
+
+    });
 });
