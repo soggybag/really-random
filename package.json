@@ -1,6 +1,6 @@
 {
   "name": "really-random",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Utility for generation of random numbers. ",
   "main": "index.js",
   "scripts": {
