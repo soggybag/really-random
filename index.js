@@ -24,6 +24,6 @@ module.exports.randomRange = (min, max) => {
  * @return {Bool}
  */
 
-module.exports.randomRange = () => {
+module.exports.randomBool = () => {
   return Math.random() < 0.5 ? true : false;
 };
