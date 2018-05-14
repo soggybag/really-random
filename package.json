@@ -1,0 +1,27 @@
+{
+  "name": "really-random",
+  "version": "0.1.0",
+  "description": "Utility for generation of random numbers. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/soggybag/really-random.git"
+  },
+  "keywords": [
+    "random",
+    "numbers"
+  ],
+  "author": "“Mitchell <“soggybag@gmail.com”> (http://www.webdevils.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/soggybag/really-random/issues"
+  },
+  "homepage": "https://github.com/soggybag/really-random#readme",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.1.1"
+  }
+}
