@@ -1,22 +1,85 @@
 'use strict';
 
-var expect = require('chai').expect;
-var numFormatter = require('../index');
+const chai = require('chai');
+const expect = chai.expect;
+const assert = chai.assert;
+const reallyRandom = require('../index');
 
-describe('#numFormatter', function() {
-    it('should return a random number', function() {
-
+describe('#random', function() {
+    it('should return a number', function() {
+      const n = reallyRandom.random();
+      expect(n).to.be.a('number');
     });
 
-    it('should return an random integer', function() {
-
+    it('should return a random number between 0 and 1', function() {
+      for (var i = 0; i < 100; i += 1) {
+        const n = reallyRandom.random();
+        assert.isAtLeast(n, 0, `${n} should be 0.0 or greater`);
+        assert.isBelow(n, 1, `${n} should be less than 1.0`);
+      }
     });
 
-    it('should return a random int in range', function() {
+    it('should return random numbers', function() {
+      const array = [];
+      for (var i = 0; i < 100; i += 1) {
+        const n = reallyRandom.random();
+        for (var j = 0; j < array.length; j += 1) {
+          expect(n).to.not.equal(array[j]);
+          array.push(n);
+        }
+      }
+    });
+});
 
+
+
+describe('#randomRange', function() {
+  it('should return an Integer', function() {
+    const n = reallyRandom.randomRange(1, 100)
+    var isInt = n % 1 === 0;
+    assert(isInt, 'not an integer:' + n);
+  });
+
+  it('should return a random number from min to max - 1', function() {
+    const min = 1;
+    const max = 7;
+    for (let i = 0; i < 100; i += 1) {
+      const n = reallyRandom.randomRange(min, max);
+      assert.isAtLeast(n, min, `${n} should be ${min} or greater`);
+      assert.isBelow(n, max, `${n} should be less than ${max}`);
+    }
+  });
+
+  it('should return random numbers', function() {
+    const array = [];
+    const min = 1;
+    const max = 7;
+    for (var i = 0; i < 100; i += 1) {
+      const n = reallyRandom.randomRange(min, max);
+      array.push(n);
+    }
+    for (var i = min; i < max; i += 1) {
+      expect(array).to.include(i);
+    }
+  });
+});
+
+
+describe('#randomBool', function() {
+    it('should return a bool', function() {
+      const n = reallyRandom.randomBool();
+      expect(n).to.be.a('boolean');
     });
 
-    it('should return random true or false', function() {
+    it('should return true and false', function() {
+      var isTrue = false;
+      var isFalse = true;
+      for (var i = 0; i < 100; i += 1) {
+        if (!isTrue) { isTrue = reallyRandom.randomBool() }
+        if (isFalse) { isFalse = reallyRandom.randomBool() }
+      }
 
+      expect(isTrue).to.equal(true);
+      expect(isFalse).to.equal(false);
     });
 });
