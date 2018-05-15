@@ -5,6 +5,7 @@ const expect = chai.expect;
 const assert = chai.assert;
 const reallyRandom = require('../index');
 
+// ----------------------------------------------------
 describe('#random', function() {
     it('should return a number', function() {
       const n = reallyRandom.random();
@@ -31,8 +32,7 @@ describe('#random', function() {
     });
 });
 
-
-
+// ----------------------------------------------------
 describe('#randomRange', function() {
   it('should return an Integer', function() {
     const n = reallyRandom.randomRange(1, 100)
@@ -64,7 +64,7 @@ describe('#randomRange', function() {
   });
 });
 
-
+// ----------------------------------------------------
 describe('#randomBool', function() {
     it('should return a bool', function() {
       const n = reallyRandom.randomBool();
@@ -82,4 +82,54 @@ describe('#randomBool', function() {
       expect(isTrue).to.equal(true);
       expect(isFalse).to.equal(false);
     });
+});
+
+// ----------------------------------------------------
+describe('#randomArray', function() {
+    const source = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i'];
+    const array = source.slice();
+
+    let shuffledArray = reallyRandom.randomArray(array)
+
+    it('should return an array', function() {
+      expect(shuffledArray).to.be.an('array');
+    });
+
+    it('should have same number of items', function() {
+      expect(shuffledArray.length).to.be.equal(array.length);
+    });
+
+    it('should not have reference equality with source array', function() {
+      expect(shuffledArray).to.not.be.equal(array);
+    });
+
+    it('should not modify source array', function() {
+      for (var i = 0; i < array.length; i += 1) {
+        expect(array[i]).to.be.equal(source[i]);
+      }
+    });
+});
+
+
+// ----------------------------------------------------
+describe('#shuffleArray', function() {
+    const source = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i'];
+    const array = source.slice();
+
+    let shuffledArray = reallyRandom.shuffleArray(array);
+
+    it('should return an array', function() {
+      expect(shuffledArray).to.be.an('array');
+    });
+
+    it('should have same number of items', function() {
+      expect(shuffledArray.length).to.be.equal(array.length);
+    });
+
+    it('should have reference equality with source array', function() {
+      expect(shuffledArray).to.be.equal(array);
+    });
+
+    // The elements should be mixed up...
+
 });
