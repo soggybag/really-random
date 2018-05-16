@@ -13,12 +13,26 @@ Some random utilities.
 
 Generate a random number between 0 and 1. This is an alias for `Math.random()`.
 
-`console.log(reallyRandom.random());`
+`const n = reallyRandom.random();`
 
 Generate a random Int in range of min to max - 1. `reallyRandom.randomRange(min, max)`.
 
-`console.log(reallyRandom.randomRange(1, 6));`
+`cosnt d6 = reallyRandom.randomRange(1, 6);`
 
 Generate a random Boolean.
 
-`console.log(reallyRandom.randomBool());`
+`const maybe = reallyRandom.randomBool();`
+
+Return a copy of an array with elements randomized.
+
+```JavaScript
+const cards = ['a', 'b', 'c', 'd'];
+const shuffled = reallyRandom.randomArray(cards);
+```
+
+Randomize an array in place.
+
+```JavaScript
+const cards = ['a', 'b', 'c', 'd'];
+const shuffledCards = reallyRandom.shuffleArray(cards);
+```
