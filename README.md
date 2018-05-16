@@ -15,7 +15,7 @@ Generate a random number between 0 and 1. This is an alias for `Math.random()`.
 
 `const n = reallyRandom.random();`
 
-Generate a random Int in range of min to max - 1. `reallyRandom.randomRange(min, max)`.
+Generate a random Int in range of min to max - 1. `randomRange(min, max)`.
 
 `cosnt d6 = reallyRandom.randomRange(1, 6);`
 

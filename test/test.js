@@ -133,3 +133,25 @@ describe('#shuffleArray', function() {
     // The elements should be mixed up...
 
 });
+
+
+// ----------------------------------------------------
+describe('#dieX', function() {
+  const dieSize6 = 6;
+  const dieSize20 = 20;
+  const d6 = reallyRandom.dieX(dieSize6);
+  const d20 = reallyRandom.dieX(dieSize20);
+
+  it('should return a number', function() {
+    const n = d6();
+    expect(n).to.be.a('number');
+  });
+
+  it('should generate numbers between 1 and 6', function() {
+    for (let i = 0; i < 100; i += 1) {
+      const n = d6();
+      assert.isAtLeast(n, 1, `${n} should be 1 or greater`);
+      assert.isBelow(n, dieSize6 + 1, `${n} should be equal or less than ${dieSize6}`);
+    }
+  })
+})

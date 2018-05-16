@@ -69,3 +69,21 @@ const shuffleArray = (a) => {
 }
 
 module.exports.shuffleArray = shuffleArray;
+
+
+// ------------------------------------------
+
+/**
+ * Returns a function that generates random numbers in The
+ * range of 1 to DieSize.
+ * @param {Int} dieSize
+ * @return {Function} New Array
+ */
+
+ const dieX = (n) => {
+   const dieSize = Math.floor(n);
+   return () => {
+     return randomRange(1, n + 1);
+   }
+ }
+module.exports.dieX = dieX;
