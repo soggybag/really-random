@@ -87,3 +87,21 @@ module.exports.shuffleArray = shuffleArray;
    }
  }
 module.exports.dieX = dieX;
+
+
+
+// function ClassOne(a, b) {
+//   this.a = a;
+//   this.b = b;
+// }
+//
+// new ClassOne()
+//
+// class ClassTwo {
+//   constructor(a, b) {
+//     this.a = a;
+//     this.b = b;
+//   }
+// }
+
+new ClassTwo()
