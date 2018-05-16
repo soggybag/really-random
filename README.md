@@ -3,8 +3,22 @@
 
 # really-random
 
-Some random number utilities.
+Some random utilities.
 
-- Generates random numbers
-  - In a random
-  - Random Bool true or false
+## Installation
+
+`const reallyRandom = require('really-random');`
+
+## Usage
+
+Generate a random number between 0 and 1. This is an alias for `Math.random()`.
+
+`console.log(reallyRandom.random());`
+
+Generate a random Int in range of min to max - 1. `reallyRandom.randomRange(min, max)`.
+
+`console.log(reallyRandom.randomRange(1, 6));`
+
+Generate a random Boolean.
+
+`console.log(reallyRandom.randomBool());`
