@@ -6,25 +6,34 @@
 
 # really-random
 
-Some random utilities.
+Utilities for generating random results. Includes utilities to generate
+random numbers, integers in range, and randomizing in Arrays. 
 
 ## Installation
 
-`const reallyRandom = require('really-random');`
+```JavaScript
+const reallyRandom = require('really-random');
+```
 
 ## Usage
 
 Generate a random number between 0 and 1. This is an alias for `Math.random()`.
 
-`const n = reallyRandom.random();`
+```JavaScript
+const n = reallyRandom.random();
+```
 
 Generate a random Int in range of min to max - 1. `randomRange(min, max)`.
 
-`const dieRoll = reallyRandom.randomRange(1, 6);`
+```JavaScript
+const dieRoll = reallyRandom.randomRange(1, 6);
+```
 
 Generate a random Boolean.
 
-`const maybe = reallyRandom.randomBool();`
+```JavaScript
+const maybe = reallyRandom.randomBool();
+```
 
 Generate a die roll function. Returns a function that generates die rolls of
 an n sided die with numbers in the range of 1 to n.
@@ -34,7 +43,7 @@ const d6 = dieX(6);
 console.log(d6() + d6()); // Outputs 2 - 12
 
 const d20 = dieX(20);
-const toHit = d20() + 3; 
+const toHit = d20() + 3;
 ```
 
 Return a copy of an array with elements randomized.

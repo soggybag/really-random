@@ -70,7 +70,6 @@ const shuffleArray = (a) => {
 
 module.exports.shuffleArray = shuffleArray;
 
-
 // ------------------------------------------
 
 /**
