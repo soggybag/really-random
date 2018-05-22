@@ -20,11 +20,22 @@ Generate a random number between 0 and 1. This is an alias for `Math.random()`.
 
 Generate a random Int in range of min to max - 1. `randomRange(min, max)`.
 
-`cosnt d6 = reallyRandom.randomRange(1, 6);`
+`const dieRoll = reallyRandom.randomRange(1, 6);`
 
 Generate a random Boolean.
 
 `const maybe = reallyRandom.randomBool();`
+
+Generate a die roll function. Returns a function that generates die rolls of
+an n sided die with numbers in the range of 1 to n.
+
+```JavaScript
+const d6 = dieX(6);
+console.log(d6() + d6()); // Outputs 2 - 12
+
+const d20 = dieX(20);
+const toHit = d20() + 3; 
+```
 
 Return a copy of an array with elements randomized.
 
