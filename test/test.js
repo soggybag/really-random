@@ -138,8 +138,10 @@ describe('#shuffleArray', function() {
 // ----------------------------------------------------
 describe('#dieX', function() {
   const dieSize6 = 6;
+  const dieSize8 = 8;
   const dieSize20 = 20;
   const d6 = reallyRandom.dieX(dieSize6);
+  const d8 = reallyRandom.dieX(dieSize8);
   const d20 = reallyRandom.dieX(dieSize20);
 
   it('should return a number', function() {
@@ -152,6 +154,23 @@ describe('#dieX', function() {
       const n = d6();
       assert.isAtLeast(n, 1, `${n} should be 1 or greater`);
       assert.isBelow(n, dieSize6 + 1, `${n} should be equal or less than ${dieSize6}`);
+    }
+  })
+
+  it('should generate numbers between 1 and 20', function() {
+    for (let i = 0; i < 100; i += 1) {
+      const n = d20();
+      assert.isAtLeast(n, 1, `${n} should be 1 or greater`);
+      assert.isBelow(n, dieSize20 + 1, `${n} should be equal or less than ${dieSize20}`);
+    }
+  })
+
+  it('should simulate rolling a d8 + 3', function() {
+    const bonus = 3
+    for (let i = 0; i < 1000; i += 1) {
+      const n = d8(bonus);
+      assert.isAtLeast(n, 1 + bonus, `${n} should be 1 + ${bonus} or greater`);
+      assert.isBelow(n, dieSize8 + 1 + bonus, `${n} should be equal or less than ${dieSize8} + ${bonus}`);
     }
   })
 })

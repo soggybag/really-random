@@ -38,10 +38,20 @@ an n sided die with numbers in the range of 1 to n.
 
 ```JavaScript
 const d6 = dieX(6);
-console.log(d6() + d6()); // Outputs 2 - 12
+console.log(d6() + d6()); // Outputs 2 to 12
 
 const d20 = dieX(20);
 const toHit = d20() + 3;
+```
+
+You can also pass the bonus into the die roll function.
+
+```JavaScript
+const d6 = dieX(6);
+console.log(d6(1)); // Outputs 2 to 7 simulates d6+1
+
+const d20 = dieX(20);
+const toHit = d20(3); // Outputs 4 to 23 simulates d20+3
 ```
 
 Return a copy of an array with elements randomized.

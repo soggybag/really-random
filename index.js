@@ -81,8 +81,8 @@ module.exports.shuffleArray = shuffleArray;
 
  const dieX = (n) => {
    const dieSize = Math.floor(n);
-   return () => {
-     return randomRange(1, n + 1);
+   return (bonus = 0) => {
+     return randomRange(1, n + 1) + bonus;
    }
  }
 module.exports.dieX = dieX;
