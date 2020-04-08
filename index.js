@@ -41,14 +41,14 @@ module.exports.randomBool = randomBool;
  * @return {Array} New Array
  */
 
- const randomArray = (array) => {
-   var newArray = [];
-   var source = array.slice();
-   while(source.length > 0) {
-     newArray.push(source.splice(randomRange(0, source.length), 1)[0]);
-   }
-   return newArray;
- }
+const randomArray = (array) => {
+  var newArray = [];
+  var source = array.slice();
+  while(source.length > 0) {
+    newArray.push(source.splice(randomRange(0, source.length), 1)[0]);
+  }
+  return newArray;
+}
 module.exports.randomArray = randomArray;
 
 
@@ -79,10 +79,10 @@ module.exports.shuffleArray = shuffleArray;
  * @return {Function} New Array
  */
 
- const dieX = (n) => {
-   const dieSize = Math.floor(n);
-   return (bonus = 0) => {
-     return randomRange(1, n + 1) + bonus;
-   }
- }
+const dieX = (n) => {
+  const dieSize = Math.floor(n);
+  return (bonus = 0) => {
+    return randomRange(1, dieSize + 1) + bonus;
+  }
+}
 module.exports.dieX = dieX;
