@@ -2,6 +2,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/soggybag/really-random/badge.svg?branch=master)](https://coveralls.io/github/soggybag/really-random?branch=master)
 [![Maintainability](https://api.codeclimate.com/v1/badges/ddb65c2e91ad67ffb6c1/maintainability)](https://codeclimate.com/github/soggybag/really-random/maintainability)
 
+
 # really-random
 
 Utilities for generating random results. Includes utilities to generate
