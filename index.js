@@ -86,3 +86,14 @@ const dieX = (n) => {
   }
 }
 module.exports.dieX = dieX;
+
+/**
+ * Returns 'heads' or 'tails'
+ * @returns String
+ */
+
+const flipCoin = () => {
+  return randomBool() ? 'heads' : 'tails';
+}
+
+module.exports.flipCoin = flipCoin;
