@@ -97,3 +97,16 @@ const flipCoin = () => {
 }
 
 module.exports.flipCoin = flipCoin;
+
+/**
+ * Returns true or false
+ * @returns Bool
+ */
+
+const flip = () => {
+  return randomBool()
+}
+
+module.exports.flip = flip;
+
+

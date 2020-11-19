@@ -68,3 +68,9 @@ Randomize an array in place.
 const cards = ['a', 'b', 'c', 'd'];
 const shuffledCards = reallyRandom.shuffleArray(cards);
 ```
+
+## Getting Started 
+
+Run Tests
+
+- npm run test
