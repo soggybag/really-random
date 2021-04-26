@@ -42,8 +42,8 @@ module.exports.randomBool = randomBool;
  */
 
 const randomArray = (array) => {
-  var newArray = [];
-  var source = array.slice();
+  const newArray = [];
+  const source = array.slice();
   while(source.length > 0) {
     newArray.push(source.splice(randomRange(0, source.length), 1)[0]);
   }
@@ -58,8 +58,10 @@ module.exports.randomArray = randomArray;
  * @param {Array} a items An array containing the items.
  */
 const shuffleArray = (a) => {
-    var j, x, i;
-    for (i = a.length - 1; i > 0; i--) {
+    let j; 
+    let x
+    let i;
+    for (i = a.length - 1; i > 0; i -= 1) {
         j = Math.floor(Math.random() * (i + 1));
         x = a[i];
         a[i] = a[j];
