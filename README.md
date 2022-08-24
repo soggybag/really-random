@@ -6,6 +6,8 @@
 
 ![npm](https://img.shields.io/npm/v/really-random)
 
+![GitHub repo size](https://img.shields.io/github/repo-size/soggybag/really-random)
+
 
 # really-random
 
