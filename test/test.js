@@ -41,8 +41,8 @@ describe('#randomBool', () => {
       const isTrue = false
       const isFalse = true
       for (let i = 0; i < 100; i += 1) {
-        if (!isTrue) { isTrue = randomBool() }
-        if (isFalse) { isFalse = randomBool() }
+        if (randomBool()) { isTrue = true }
+        if (!randomBool()) { isFalse = false }
       }
 
       expect(isTrue).toBe(true)
