@@ -1,133 +1,98 @@
-'use strict';
-
-const chai = require('chai');
-const expect = chai.expect;
-const assert = chai.assert;
-const reallyRandom = require('../index');
+const { random, randomRange, randomArray, randomBool, dieX, shuffle, pick } = require('../index')
 
 // ----------------------------------------------------
-describe('#random', function() {
-    it('should return a number', function() {
-      const n = reallyRandom.random();
-      expect(n).to.be.a('number');
+describe('#random', () => {
+    test('should return a number', () => {
+      const n = random()
+      expect(typeof n).toBe('number')
     });
 
-    it('should return a random number between 0 and 1', function() {
-      for (var i = 0; i < 100; i += 1) {
-        const n = reallyRandom.random();
-        assert.isAtLeast(n, 0, `${n} should be 0.0 or greater`);
-        assert.isBelow(n, 1, `${n} should be less than 1.0`);
-      }
-    });
-
-    it('should return random numbers', function() {
-      const array = [];
-      for (var i = 0; i < 100; i += 1) {
-        const n = reallyRandom.random();
-        for (var j = 0; j < array.length; j += 1) {
-          expect(n).to.not.equal(array[j]);
-          array.push(n);
-        }
+    test('should return a random number between 0 and 1', () => {
+      const maxTestValue = 10
+      for (let i = 0; i < 100; i += 1) {
+        const n = random(maxTestValue)
+        expect(typeof n).toBe('number')
+        expect(n).toBeGreaterThanOrEqual(0)
+        expect(n).toBeLessThanOrEqual(maxTestValue)
       }
     });
 });
 
 // ----------------------------------------------------
-describe('#randomRange', function() {
-  it('should return an Integer', function() {
-    const n = reallyRandom.randomRange(1, 100)
-    var isInt = n % 1 === 0;
-    assert(isInt, 'not an integer:' + n);
-  });
-
-  it('should return a random number from min to max - 1', function() {
-    const min = 1;
-    const max = 7;
-    for (let i = 0; i < 100; i += 1) {
-      const n = reallyRandom.randomRange(min, max);
-      assert.isAtLeast(n, min, `${n} should be ${min} or greater`);
-      assert.isBelow(n, max, `${n} should be less than ${max}`);
-    }
-  });
-
-  it('should return random numbers', function() {
-    const array = [];
-    const min = 1;
-    const max = 7;
-    for (var i = 0; i < 100; i += 1) {
-      const n = reallyRandom.randomRange(min, max);
-      array.push(n);
-    }
-    for (var i = min; i < max; i += 1) {
-      expect(array).to.include(i);
-    }
+describe('#randomRange', () => {
+  test('should return an Integer', () => {
+    const minValue = 3
+    const maxValue = 35
+    const n = randomRange(minValue, maxValue)
+    expect(typeof n).toBe('number')
+    expect(n).toBeGreaterThanOrEqual(minValue)
+    expect(n).toBeLessThanOrEqual(maxValue)
   });
 });
 
 // ----------------------------------------------------
-describe('#randomBool', function() {
-    it('should return a bool', function() {
-      const n = reallyRandom.randomBool();
-      expect(n).to.be.a('boolean');
+describe('#randomBool', () => {
+    test('should return a bool', () => {
+      const n = randomBool()
+      expect(typeof n).toBe('boolean')
     });
 
-    it('should return true and false', function() {
-      var isTrue = false;
-      var isFalse = true;
-      for (var i = 0; i < 100; i += 1) {
-        if (!isTrue) { isTrue = reallyRandom.randomBool() }
-        if (isFalse) { isFalse = reallyRandom.randomBool() }
+    test('should return true and false', () => {
+      const isTrue = false
+      const isFalse = true
+      for (let i = 0; i < 100; i += 1) {
+        if (!isTrue) { isTrue = randomBool() }
+        if (isFalse) { isFalse = randomBool() }
       }
 
-      expect(isTrue).to.equal(true);
-      expect(isFalse).to.equal(false);
+      expect(isTrue).toBe(true)
+      expect(isFalse).toBe(false)
     });
 });
 
 // ----------------------------------------------------
-describe('#randomArray', function() {
+describe('#randomArray', () => {
     const source = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i'];
     const array = source.slice();
 
-    let shuffledArray = reallyRandom.randomArray(array)
+    const shuffledArray = randomArray(array)
 
-    it('should return an array', function() {
-      expect(shuffledArray).to.be.an('array');
+    test('should return an array', () => {
+      expect(typeof shuffledArray).toBe('array')
     });
 
-    it('should have same number of items', function() {
-      expect(shuffledArray.length).to.be.equal(array.length);
+    test('should have same number of items', () => {
+      expect(shuffledArray.length).toBe(array.length)
     });
 
-    it('should not have reference equality with source array', function() {
-      expect(shuffledArray).to.not.be.equal(array);
+    test('should not have reference equality with source array', () => {
+      expect(shuffledArray).not.toBe(array);
     });
 
-    it('should not modify source array', function() {
-      for (var i = 0; i < array.length; i += 1) {
-        expect(array[i]).to.be.equal(source[i]);
+    test('should not modify source array', function() {
+      for (let i = 0; i < array.length; i += 1) {
+        expect(array[i]).toBe(source[i]);
       }
     });
 });
 
 
 // ----------------------------------------------------
-describe('#shuffleArray', function() {
+describe('#shuffleArray', () => {
     const source = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i'];
     const array = source.slice();
+    const shuffledArray = shuffle(array);
 
-    let shuffledArray = reallyRandom.shuffleArray(array);
-
-    it('should return an array', function() {
-      expect(shuffledArray).to.be.an('array');
+    test('should return an array', () => {
+      expect(typeof shuffledArray).toBe('array')
     });
 
-    it('should have same number of items', function() {
-      expect(shuffledArray.length).to.be.equal(array.length);
+    test('should have same number of items', () => {
+      expect(shuffledArray.length).toBe(array.length)
     });
 
-    it('should have reference equality with source array', function() {
-      expect(shuffledArray).to.be.equal(array);
+    test('should have reference equality with source array', () => {
+      expect(shuffledArray).not.toBe(array);
     });
 
     // The elements should be mixed up...
@@ -136,41 +101,38 @@ describe('#shuffleArray', function() {
 
 
 // ----------------------------------------------------
-describe('#dieX', function() {
-  const dieSize6 = 6;
-  const dieSize8 = 8;
-  const dieSize20 = 20;
-  const d6 = reallyRandom.dieX(dieSize6);
-  const d8 = reallyRandom.dieX(dieSize8);
-  const d20 = reallyRandom.dieX(dieSize20);
+describe('#dieX', () => {
+  const dieSize6 = 6
+  const dieSize8 = 8
+  const dieSize20 = 20
+  const d6 = dieX(dieSize6)
+  const d8 = dieX(dieSize8)
+  const d20 = dieX(dieSize20)
 
-  it('should return a number', function() {
+  test('should return a number', () => {
     const n = d6();
-    expect(n).to.be.a('number');
+    expect(typeof n).toBe('number')
   });
 
-  it('should generate numbers between 1 and 6', function() {
+  test('should generate numbers between 1 and 6', () => {
     for (let i = 0; i < 100; i += 1) {
-      const n = d6();
-      assert.isAtLeast(n, 1, `${n} should be 1 or greater`);
-      assert.isBelow(n, dieSize6 + 1, `${n} should be equal or less than ${dieSize6}`);
+      const n = d6()
+      
     }
   })
 
-  it('should generate numbers between 1 and 20', function() {
+  test('should generate numbers between 1 and 20', () => {
     for (let i = 0; i < 100; i += 1) {
-      const n = d20();
-      assert.isAtLeast(n, 1, `${n} should be 1 or greater`);
-      assert.isBelow(n, dieSize20 + 1, `${n} should be equal or less than ${dieSize20}`);
+      const n = d20()
+      
     }
   })
 
-  it('should simulate rolling a d8 + 3', function() {
+  test('should simulate rolling a d8 + 3', () => {
     const bonus = 3
     for (let i = 0; i < 1000; i += 1) {
-      const n = d8(bonus);
-      assert.isAtLeast(n, 1 + bonus, `${n} should be 1 + ${bonus} or greater`);
-      assert.isBelow(n, dieSize8 + 1 + bonus, `${n} should be equal or less than ${dieSize8} + ${bonus}`);
+      const n = d8(bonus)
+      
     }
   })
 })
