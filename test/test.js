@@ -1,4 +1,4 @@
-const { random, randomRange, randomArray, randomBool, dieX, shuffle, pick } = require('../index')
+const { random, randomRange, randomArray, randomBool, dieX, shuffle, pick } = require('../dist/index')
 
 // ----------------------------------------------------
 describe('#random', () => {

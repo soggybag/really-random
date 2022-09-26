@@ -1,0 +1,7 @@
+name: 'Really Random'
+author: 'Mitchell Hudson'
+description: 'Custom GH action with TypeScript'
+
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
