@@ -38,8 +38,8 @@ describe('#randomBool', () => {
     });
 
     test('should return true and false', () => {
-      const isTrue = false
-      const isFalse = true
+      let isTrue = false
+      let isFalse = true
       for (let i = 0; i < 100; i += 1) {
         if (randomBool()) { isTrue = true }
         if (!randomBool()) { isFalse = false }
@@ -58,7 +58,7 @@ describe('#randomArray', () => {
     const shuffledArray = randomArray(array)
 
     test('should return an array', () => {
-      expect(typeof shuffledArray).toBe('array')
+      expect(typeof shuffledArray).toBe('object')
     });
 
     test('should have same number of items', () => {
@@ -84,7 +84,7 @@ describe('#shuffleArray', () => {
     const shuffledArray = shuffle(array);
 
     test('should return an array', () => {
-      expect(typeof shuffledArray).toBe('array')
+      expect(typeof shuffledArray).toBe('object')
     });
 
     test('should have same number of items', () => {
@@ -92,7 +92,7 @@ describe('#shuffleArray', () => {
     });
 
     test('should have reference equality with source array', () => {
-      expect(shuffledArray).not.toBe(array);
+      expect(shuffledArray).toBe(array)
     });
 
     // The elements should be mixed up...
