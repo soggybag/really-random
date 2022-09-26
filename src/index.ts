@@ -35,7 +35,7 @@ const randomBool = (): boolean => {
  * @return {Array} New Array
  */
 
-// T extends Array<unknown>
+// T extends Array<any>
 const randomArray = <T extends Array<any>>(array: T): T[] => {
   const newArray: T[] = []
   const source: T[] = array.slice()
