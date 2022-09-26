@@ -32,6 +32,7 @@ exports.randomBool = randomBool;
  * @param {Array} Source Array
  * @return {Array} New Array
  */
+// T extends Array<unknown>
 const randomArray = (array) => {
     const newArray = [];
     const source = array.slice();
