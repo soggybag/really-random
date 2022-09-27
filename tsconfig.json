@@ -1,18 +1,11 @@
 {
-    "compilerOptions": {
-      "target": "es2019",
-      "module": "commonjs",
-      "strict": true,
-      "esModuleInterop": true,
-      "skipLibCheck": true,
-      "forceConsistentCasingInFileNames": true,
-      "outDir": "dist",
-      "lib": ["esnext"]
-    },
-    "references": [
-			{
-        "path": "./tsconfig.build.json"
-      }
-    ],
-    "exclude": ["node_modules"]
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "noImplicitAny": true,
+    "module": "es6",
+    "target": "es5",
+    "jsx": "react",
+    "allowJs": true,
+    "moduleResolution": "node"
   }
+}
